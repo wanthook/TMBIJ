@@ -1515,31 +1515,50 @@ public class formTimbang extends javax.swing.JDialog {
                 {
                     try
                     {
-                        System.out.println(timbangan);
+//                        System.out.println(timbangan);
                         byte buffer[];
                         buffer = serialPort.readBytes(e.getEventValue());
                         String sBuffer = new String(buffer);
-                        String[] val = sBuffer.split(",");
+                        msg+= sBuffer;
+                        System.out.println(msg);
+                        if(msg.toLowerCase().contains("kg"))
+                        {
+                            String[] val = msg.split(",");
+//                            System.out.println(val[val.length-1]);
+                            txtTimbang.setText(val[val.length-1].replaceAll("kg", "").trim());
+                            msg="";
+                        }
+//                        String[] val = sBuffer.split(",");
 //                        System.out.println(sBuffer+" = "+val.length);
-                        
+//                        System.out.println(sBuffer);
                         /*
                         Start timbangan satu indah jaya
                         */
-                        if(timbangan=="1")
-                        {
-                            if(val.length==4)
-                            {
-//                                System.out.println(sBuffer);
-                                msg = val[3];
-
-                            }
-                            if(val.length==1)
-                            {
-                                msg += sBuffer;
-                                txtTimbang.setText(msg.replaceAll("kg", "").trim());
-//                                System.out.println(msg);
-                            }
-                        }
+//                        if(timbangan=="1")
+//                        {
+//                            
+////                            msg+=sBuffer;
+////                            System.out.println(msg);
+////                            if(msg.toLowerCase().contains("kg"))
+////                            {
+////                                String[] buff = msg.split(",");
+////                                System.out.println(buff[buff.length-1]);
+////                                msg = "";
+////                            }
+////                            System.out.println(sBuffer+" = "+val.length);
+////                            if(val.length==4)
+////                            {
+//////                                System.out.println(sBuffer);
+////                                msg = val[3];
+////
+////                            }
+////                            if(val.length==1)
+////                            {
+////                                msg += sBuffer;
+////                                txtTimbang.setText(msg.replaceAll("kg", "").trim());
+////                                System.out.println(msg);
+////                            }
+//                        }
                         /*
                         End timbangan satu indah jaya
                         */
@@ -1549,21 +1568,21 @@ public class formTimbang extends javax.swing.JDialog {
                          /*
                         Start timbangan dua indah jaya
                         */
-                        if(timbangan == "2")
-                        {
-                            if(val.length==2)
-                            {
-                                System.out.println(sBuffer);
-                                msg = val[1];
-    //                            
-                            }
-                            if(val.length==1)
-                            {
-                                msg += sBuffer;
-                                txtTimbang.setText(msg.replaceAll("kg", "").trim());
-                                System.out.println(msg);
-                            }
-                        }
+//                        if(timbangan == "2")
+//                        {
+////                            if(val.length==2)
+////                            {
+////                                System.out.println(sBuffer);
+////                                msg = val[1];
+////    //                            
+////                            }
+////                            if(val.length==1)
+////                            {
+////                                msg += sBuffer;
+////                                txtTimbang.setText(msg.replaceAll("kg", "").trim());
+////                                System.out.println(msg);
+////                            }
+//                        }
                         /*
                         End timbangan dua indah jaya
                         */

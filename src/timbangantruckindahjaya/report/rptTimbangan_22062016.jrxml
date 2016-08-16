@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptTimbangan" pageWidth="612" pageHeight="396" columnWidth="536" leftMargin="20" rightMargin="56" topMargin="30" bottomMargin="56" whenResourceMissingType="Empty" isIgnorePagination="true" uuid="9414be0c-d731-43e0-9571-2a524f93db72">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptTimbangan" pageWidth="612" pageHeight="396" columnWidth="536" leftMargin="20" rightMargin="56" topMargin="36" bottomMargin="56" whenResourceMissingType="Empty" isIgnorePagination="true" uuid="9414be0c-d731-43e0-9571-2a524f93db72">
 	<property name="ireport.zoom" value="1.2396694214876032"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -129,64 +129,94 @@ where timbangan.hapus=1
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="33" splitType="Stretch">
+		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="248" height="15" uuid="c50e2aaa-eae9-48d8-9af0-de930edc33bb"/>
-				<textElement textAlignment="Center" verticalAlignment="Top">
+				<reportElement x="2" y="2" width="248" height="30" uuid="c50e2aaa-eae9-48d8-9af0-de930edc33bb"/>
+				<textElement verticalAlignment="Top">
 					<font fontName="Courier New" size="12" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[PT. INDAH JAYA TEXTILE INDUSTRY]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="15" width="248" height="15" uuid="344c66ca-06b5-4e8c-ac15-c738eb5ebb53"/>
-				<textElement textAlignment="Center">
+				<reportElement x="3" y="30" width="247" height="28" uuid="344c66ca-06b5-4e8c-ac15-c738eb5ebb53"/>
+				<textElement>
 					<font fontName="Courier New" size="12" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[STRUK JEMBATAN TIMBANG]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="250" y="0" width="84" height="15" uuid="e0a038d0-a10c-4f2f-9f7f-7abd5dab66f4"/>
+				<reportElement x="250" y="0" width="84" height="20" uuid="302f8d20-2dbf-4f54-b0a7-cb0325282189"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Courier New" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Reff. SJ :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="38" width="84" height="20" uuid="e0a038d0-a10c-4f2f-9f7f-7abd5dab66f4"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Courier New" size="12" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Tanggal Cetak :]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy HH:mm:ss">
-				<reportElement x="334" y="0" width="187" height="15" uuid="797ab1e4-18b6-41dd-9927-a8fcefd4c805"/>
+				<reportElement x="334" y="38" width="187" height="20" uuid="797ab1e4-18b6-41dd-9927-a8fcefd4c805"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Courier New" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single" leftIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="334" y="0" width="187" height="20" uuid="54d84861-c39b-4315-b3f5-e4b232e657bd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Courier New" size="12"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sj}.split(",").length>1?$F{sj}.split(",")[0]+" *":$F{sj}.toString()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="19" width="84" height="20" uuid="c031277f-771c-4f3b-8fad-cd10be5d7e6f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Courier New" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[PO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="334" y="19" width="187" height="20" uuid="36f01709-dd1c-497b-a040-052968bdc34a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Courier New" size="12"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{po}.split(",").length>1?$F{po}.split(",")[0]+" *":$F{po}.toString()]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="3" splitType="Stretch"/>
+		<band height="8" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="5" splitType="Stretch"/>
+		<band height="4" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
 		<band splitType="Stretch"/>
 	</detail>
 	<columnFooter>
-		<band height="1" splitType="Stretch"/>
+		<band height="2" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="304" splitType="Stretch">
+		<band height="265" splitType="Stretch">
 			<staticText>
-				<reportElement x="80" y="221" width="135" height="20" uuid="b1fcbbbb-4320-43e4-a211-c380a03ac041"/>
+				<reportElement x="67" y="170" width="135" height="20" uuid="b1fcbbbb-4320-43e4-a211-c380a03ac041"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Courier New" size="12" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Di Check Oleh]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="299" y="221" width="135" height="20" uuid="f3382d7d-86e0-4927-852c-c872f4855d4e"/>
+				<reportElement x="286" y="170" width="135" height="20" uuid="f3382d7d-86e0-4927-852c-c872f4855d4e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Courier New" size="12" isBold="true" isUnderline="false"/>
 				</textElement>
@@ -257,8 +287,8 @@ where timbangan.hapus=1
 				<text><![CDATA[Nama Supir]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="table" mode="Transparent" x="3" y="177" width="90" height="35" uuid="b7a2f726-5005-4872-b99f-5f5ab6335b53"/>
-				<textElement verticalAlignment="Top">
+				<reportElement style="table" mode="Transparent" x="3" y="122" width="90" height="20" uuid="b7a2f726-5005-4872-b99f-5f5ab6335b53"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Courier New" size="12" isBold="true"/>
 					<paragraph leftIndent="5" spacingBefore="2"/>
 				</textElement>
@@ -337,9 +367,9 @@ where timbangan.hapus=1
 				<textFieldExpression><![CDATA[$F{nama_supir}.toString()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="table" x="93" y="177" width="404" height="35" uuid="f8418639-36cf-433a-82ca-6699137aea02"/>
+				<reportElement style="table" x="93" y="122" width="404" height="30" uuid="f8418639-36cf-433a-82ca-6699137aea02"/>
 				<textElement verticalAlignment="Top">
-					<font fontName="Courier New" size="10"/>
+					<font fontName="Courier New" size="12"/>
 					<paragraph leftIndent="2" spacingBefore="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{catatan}.toString()]]></textFieldExpression>
@@ -385,14 +415,14 @@ where timbangan.hapus=1
 				<textFieldExpression><![CDATA[$F{jam_keluar}.toString()]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="80" y="272" width="135" height="20" uuid="3642469f-439d-4f5b-8f71-015828d5ab30"/>
+				<reportElement x="67" y="221" width="135" height="20" uuid="3642469f-439d-4f5b-8f71-015828d5ab30"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Courier New" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["( "+$P{printed_by}.toString()+" )"]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="299" y="272" width="135" height="20" uuid="4897e44d-b719-4bd2-8ae5-e3bb086ceac1"/>
+				<reportElement x="286" y="221" width="135" height="20" uuid="4897e44d-b719-4bd2-8ae5-e3bb086ceac1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Courier New" size="12" isBold="true"/>
 				</textElement>
@@ -414,38 +444,6 @@ where timbangan.hapus=1
 				</textElement>
 				<text><![CDATA[Tanggal Keluar]]></text>
 			</staticText>
-			<staticText>
-				<reportElement style="table" x="3" y="122" width="90" height="35" uuid="302f8d20-2dbf-4f54-b0a7-cb0325282189"/>
-				<textElement verticalAlignment="Top">
-					<font fontName="Courier New" size="12" isBold="true" isUnderline="false"/>
-					<paragraph leftIndent="2" spacingBefore="5"/>
-				</textElement>
-				<text><![CDATA[Reff. SJ :]]></text>
-			</staticText>
-			<textField>
-				<reportElement style="table" x="93" y="122" width="404" height="35" uuid="54d84861-c39b-4315-b3f5-e4b232e657bd"/>
-				<textElement verticalAlignment="Top">
-					<font fontName="Courier New" size="10"/>
-					<paragraph leftIndent="2" spacingBefore="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{sj}.toString()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement style="table" x="3" y="157" width="90" height="20" uuid="c031277f-771c-4f3b-8fad-cd10be5d7e6f"/>
-				<textElement verticalAlignment="Top">
-					<font fontName="Courier New" size="12" isBold="true" isUnderline="false"/>
-					<paragraph leftIndent="2" spacingBefore="5"/>
-				</textElement>
-				<text><![CDATA[PO:]]></text>
-			</staticText>
-			<textField>
-				<reportElement style="table" x="93" y="157" width="404" height="20" uuid="36f01709-dd1c-497b-a040-052968bdc34a"/>
-				<textElement verticalAlignment="Top">
-					<font fontName="Courier New" size="10"/>
-					<paragraph leftIndent="2" spacingBefore="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{po}.toString()]]></textFieldExpression>
-			</textField>
 		</band>
 	</summary>
 </jasperReport>
